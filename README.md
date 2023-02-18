@@ -25,8 +25,16 @@ Disclaimer: The dataset for this competition contains text that may be considere
 
 ## Approaches
 ### Modelling as a Question & Answering (Q&A) problem
+Given a question and a context, train a transformer model that is able to find the answer in the context.
 
-### Modelling as a Named Entity Recognition (NER) problem
+We have: \
+Question: ```sentiment``` column (positive/negative/neutral) \
+Context: ```text``` column \
+Answer: ```selected_text``` column 
+
+### Models
+[deepset/roberta-base-squad2](https://huggingface.co/deepset/roberta-base-squad2) (roberta-base model, fine-tuned using the SQuAD2.0 dataset) \
+[distilbert-base-cased-distilled-squad](https://huggingface.co/distilbert-base-cased-distilled-squad) (DistilBERT-base-cased, fine-tuned using (a second step of) knowledge distillation on SQuAD v1.1) 
 
 ## Evaluation metric
 The metric in this competition is the [word-level Jaccard score](https://en.wikipedia.org/wiki/Jaccard_index). The Jaccard score is defined as the size of the intersection divided by the size of the union of the sample sets:
@@ -35,5 +43,5 @@ Jaccard(U,V) = \frac{|U \cap V|}{|U \cup V|}
 ```
 
 ## Results
-
-
+Fine-tuned roberta-base-squad2: **70,2** Jaccard score \
+Fine-tuned distilbert-base-cased-distilled-squad: **68,6** Jaccard score 
